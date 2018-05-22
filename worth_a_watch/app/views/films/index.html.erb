@@ -10,7 +10,7 @@
         <% @films.each do |f| %>
             <tr>
                 <td><%= f.title %></td>
-                <td><%= f.user_id %> </td>
+                <td><%= f.user.email %> </td>
             </tr>
         <% end %>
     </tbody>

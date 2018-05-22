@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # TMDB API_KEY
+  API_KEY = "49090325da9f6c9a6b241c6bcb9a56da"
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
