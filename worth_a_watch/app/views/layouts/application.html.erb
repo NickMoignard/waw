@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar.html'%>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <%= render 'layouts/footer.html'%>
+
+
   </body>
 </html>
