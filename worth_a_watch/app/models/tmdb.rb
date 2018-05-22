@@ -1,10 +1,5 @@
 module TMDB  
-    def search( options = {})
-        raise ArgumentError, 'query cant be empty' if options[:query].blank?
 
-        options = options.merge( {:api_key => API_KEY} )
-        Request.where('/3/search/movie', options)
-    end
   class Search < Base
         
         attr_accessor   :page,
@@ -15,22 +10,28 @@ module TMDB
         def initialize(query)
             raise ArgumentError 'Query must be a string' if !query.is_a?(String)
 
-            response = search(:query => query )
+            response = search_movies(:query => query )
 
             # TODO: error handling
-            if response.errors.exists?
-                raise ArgumentError 'somethings wrong'
-            end
+            # if response.errors.exists?
+            #     raise ArgumentError 'somethings wrong'
+            # end
 
-            super(json)
-            self.results = parse_results(json)
+            super(response)
+            self.results = parse_results(response)
         end
                         
         private
 
+        def search_movies( options = {})
+            raise ArgumentError, 'query cant be empty' if options[:query].blank?
+
+            options = options.merge( {:api_key => API_KEY} )
+            Request.where('/3/search/movie', options)
+        end
 
         def parse_results(json)
-            json.fetch("results", []).map { |film| Film.new(film)}
+            json.fetch("results", []).map { |movie| TMDB::Movie.new(movie)}
         end
     end
 
