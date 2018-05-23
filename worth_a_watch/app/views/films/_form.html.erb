@@ -15,6 +15,16 @@
         <%= f.label :title %>
         <%= f.text_field :title, id: :film_title %>
     </div>
+    <div class="field">
+        <%= f.label :director %>
+        <%= f.text_field :director, id: :film_director %>
+    </div>
+    <div class="field">
+        <%= f.label :year %>
+        <%= f.number_field :year, id: :film_year %>
+    </div>
+
+
 
     <div class="actions">
         <%= f.submit %>

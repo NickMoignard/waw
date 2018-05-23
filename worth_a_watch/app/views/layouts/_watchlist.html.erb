@@ -4,14 +4,18 @@
         <thead>
             <tr>
                 <th>Title</th>
-                <th>User ID</th>
-                <th colspan="2"></th>
+                <th>Director</th>
+                <th>Year</th>
+                <th>User</th>
+                <th colspan="4"></th>
             </tr>
         </thead>
         <tbody>
             <% @films.each do |f| %>
                 <tr>
                     <td><%= f.title %></td>
+                    <td><%= f.director %></td>
+                    <td><%= f.year %></td>
                     <td><%= f.user.email %> </td>
                 </tr>
             <% end %>
