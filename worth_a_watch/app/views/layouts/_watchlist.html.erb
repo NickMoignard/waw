@@ -7,6 +7,7 @@
                 <th>Director</th>
                 <th>Year</th>
                 <th>User</th>
+                <th>Votes</th>
                 <th colspan="4"></th>
             </tr>
         </thead>
@@ -17,9 +18,27 @@
                     <td><%= f.director %></td>
                     <td><%= f.year %></td>
                     <td><%= f.user.email %> </td>
+                    <td>
+                        <%= f.get_likes.size %>
+
+
+
+                        <% if current_user.liked? f %>
+                            <%= link_to "Down", unlike_film_path(f), method: :put %>
+                        <% else %>
+                            <%= link_to 'Up', like_film_path(f), method: :put %>
+                        <% end %>
+                    </td>
+
                 </tr>
             <% end %>
         </tbody>
     </table>
 </div>
-<%= link_to "New", new_film_path %>
+
+
+<% if current_user %>
+    <%= link_to "New", new_film_path %>
+<% else %>
+    <%= link_to "New", new_user_session_path  %>
+<% end %>

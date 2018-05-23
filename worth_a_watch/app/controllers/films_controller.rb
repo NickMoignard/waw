@@ -1,11 +1,12 @@
 class FilmsController < ApplicationController
+    before_action :set_film, only: [:destroy, :upvote, :downvote]
+
     def index
         @films = Film.all
     end
 
     #GET /films/:id
     def show
-        @film = Film.find(params[:id])
     end
 
     # GET /films/new
@@ -31,8 +32,22 @@ class FilmsController < ApplicationController
         @post.destroy
     end
 
+    def upvote 
+        @film.liked_by current_user
+        redirect_back(fallback_location: root_path)
+      end  
+      
+      def downvote
+        @film.unliked_by current_user
+        redirect_back(fallback_location: root_path)
+      end
+    
     private
     def film_params
         params.require(:film).permit(:title, :user_id, :director, :year)
+    end
+
+    def set_film
+        @film = Film.find(params[:id])
     end
 end
