@@ -1,0 +1,29 @@
+#watchlist {
+    height: 80vh;
+    overflow: auto;
+    height: 80vh;
+    width: 100%;
+
+    table {
+        box-sizing: border-box; 
+        width: 100%;
+        padding: 2em;
+        text-align: center;
+
+
+    tr {
+        height: 1.5em;
+    }
+    
+    th {
+        border-bottom: solid 2px black;
+        vertical-align: bottom;
+    }
+    td {
+        vertical-align: middle;
+        border-bottom: solid 1px grey;
+    }
+
+    }   
+}
+
