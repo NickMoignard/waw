@@ -1,0 +1,15 @@
+#watchlist {
+    height: 80vh;
+    overflow: auto;
+
+    table {
+        box-sizing: border-box; 
+        width: 100%;
+        margin: 2em;
+        text-align: center;
+        tr {
+            height: 1.5em;
+        }
+    }
+}
+

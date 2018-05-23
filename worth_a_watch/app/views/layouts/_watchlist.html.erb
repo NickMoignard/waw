@@ -1,0 +1,21 @@
+
+<div id="watchlist">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>User ID</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @films.each do |f| %>
+                <tr>
+                    <td><%= f.title %></td>
+                    <td><%= f.user.email %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<%= link_to "New", new_film_path %>
